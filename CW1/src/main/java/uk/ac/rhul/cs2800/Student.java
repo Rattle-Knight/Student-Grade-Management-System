@@ -1,5 +1,8 @@
 package uk.ac.rhul.cs2800;
 
+/**
+ * this is a class for representing a Student in the grade management program.
+ */
 public class Student {
   private long id;
   private String firstName;
