@@ -34,4 +34,23 @@ public class StudentTest {
     assertEquals("BossBrandy", username);
     assertEquals("alicebrandy@gmail.com", email);
   }
+
+  @Test
+  public void Moduletest() {
+    // test 2
+    Module module = new Module();
+
+    module.setCode("CS2800");
+    final String code = module.getCode();
+
+    module.setName("Software Enginnering");
+    final String name = module.getName();
+
+    module.setMnc(true);
+    final boolean mnc = module.getMnc();
+
+    assertEquals("CS2800", code);
+    assertEquals("Software Enginnering", name);
+    assertEquals(true, mnc);
+  }
 }
