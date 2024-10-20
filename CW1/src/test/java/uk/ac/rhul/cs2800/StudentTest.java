@@ -53,4 +53,16 @@ public class StudentTest {
     assertEquals("Software Enginnering", name);
     assertEquals(true, mnc);
   }
+
+  @Test
+  public void gradeTest() {
+    // test 3
+    Grade grade = new Grade();
+
+    grade.setCode(90);
+    final Integer score = grade.getScore();
+
+    assertEquals(90, score);
+  }
+
 }
