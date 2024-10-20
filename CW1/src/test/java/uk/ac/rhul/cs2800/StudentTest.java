@@ -59,7 +59,7 @@ public class StudentTest {
     // test 3
     Grade grade = new Grade();
 
-    grade.setCode(90);
+    grade.setScore(90);
     final Integer score = grade.getScore();
 
     assertEquals(90, score);
