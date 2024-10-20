@@ -1,5 +1,9 @@
 package uk.ac.rhul.cs2800;
 
+
+/**
+ * this is the class for representing Modules for classes.
+ */
 public class Module {
   private String code;
   private String name;
