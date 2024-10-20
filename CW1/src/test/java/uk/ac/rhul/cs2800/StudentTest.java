@@ -36,7 +36,7 @@ public class StudentTest {
   }
 
   @Test
-  public void Moduletest() {
+  public void moduleTest() {
     // test 2
     Module module = new Module();
 
