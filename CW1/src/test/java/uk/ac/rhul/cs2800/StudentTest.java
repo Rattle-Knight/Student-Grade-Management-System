@@ -2,6 +2,9 @@ package uk.ac.rhul.cs2800;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
+import uk.ac.rhul.cs2800.model.Grade;
+import uk.ac.rhul.cs2800.model.Module;
+import uk.ac.rhul.cs2800.model.Student;
 
 /**
  * Unit test for Student Class.
