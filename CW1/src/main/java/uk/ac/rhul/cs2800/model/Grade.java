@@ -5,7 +5,7 @@ package uk.ac.rhul.cs2800.model;
  */
 public class Grade {
   private Integer score;
-  private String ModuleReference;
+  private String moduleReference;
 
   public Integer getScore() {
     return score;
@@ -16,11 +16,11 @@ public class Grade {
   }
 
   public String getModuleReference() {
-    return ModuleReference;
+    return moduleReference;
   }
 
   public void setModuleReference(String moduleReference) {
-    ModuleReference = moduleReference;
+    this.moduleReference = moduleReference;
   }
 
 

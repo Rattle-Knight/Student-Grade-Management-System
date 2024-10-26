@@ -73,7 +73,7 @@ public class StudentTest {
   @Test
   public void registerModuleTest() {
     // test 4
-    Student student = new Student();
+    final Student student = new Student();
 
     Module module = new Module();
     module.setCode("CS2800");
@@ -99,7 +99,7 @@ public class StudentTest {
   @Test
   public void addGradeTest() {
     // test 5
-    Student student = new Student();
+    final Student student = new Student();
 
     Module module = new Module();
     module.setCode("CS2800");
@@ -120,8 +120,8 @@ public class StudentTest {
     //gets the newly added grade
     Grade testgrade = student.getGrade(module);
     
-    assertEquals(grade,testgrade);
-    assertEquals(grade.getScore(),testgrade.getScore());
+    assertEquals(grade, testgrade);
+    assertEquals(grade.getScore(), testgrade.getScore());
 
   }
 
