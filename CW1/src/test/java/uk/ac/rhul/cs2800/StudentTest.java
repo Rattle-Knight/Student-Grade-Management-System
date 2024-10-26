@@ -107,21 +107,21 @@ public class StudentTest {
     module.setMnc(true);
 
     student.registerModule(module);
-
-    // grade has a reference to the code of the module that it is registered for
+    
+    //grade has a reference to the code of the module that it is registered for
     Grade grade = new Grade();
 
     grade.setScore(90);
     grade.setModuleReference("CS2800");
-
-    // adds the grade
+    
+    //adds the grade
     student.addGrade(grade);
-
-    // gets the newly added grade
+    
+    //gets the newly added grade
     Grade testgrade = student.getGrade(module);
-
-    assertEquals(grade, testgrade);
-    assertEquals(grade.getScore(), testgrade.getScore());
+    
+    assertEquals(grade,testgrade);
+    assertEquals(grade.getScore(),testgrade.getScore());
 
   }
 
