@@ -2,6 +2,8 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import uk.ac.rhul.cs2800.exception.NoRegistrationException;
+
 
 /**
  * this is a class for representing a Student in the grade management program.
@@ -83,8 +85,26 @@ public class Student {
    *
    * @param gradeToAdd the grade to be added to the students grades array.
    */
-  public void addGrade(Grade gradeToAdd) {
-    grades.add(gradeToAdd);
+  public void addGrade(Grade gradeToAdd) throws NoRegistrationException {
+
+    boolean validModuleGrade = false;
+    for (int count = 0; count < registrations.size(); count++) {
+      if (registrations.get(count).getModule().getCode().equals(gradeToAdd.getModuleReference())) {
+        validModuleGrade = true;
+        break;
+      } else {
+        validModuleGrade = false;
+      }
+    }
+
+    if (validModuleGrade) {
+      grades.add(gradeToAdd);
+    } else {
+      throw new NoRegistrationException(
+          "No Registered Module with Code " + gradeToAdd.getModuleReference());
+    }
+
+
   }
 
   /**
@@ -100,6 +120,9 @@ public class Student {
     for (int count = 0; count < grades.size(); count++) {
       if (grades.get(count).getModuleReference().equals(modulecheck.getCode())) {
         returngrade = grades.get(count);
+        break;
+      } else {
+        returngrade = null;
       }
     }
     return returngrade;
