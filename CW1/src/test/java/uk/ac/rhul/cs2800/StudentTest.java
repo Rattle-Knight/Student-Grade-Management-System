@@ -71,15 +71,9 @@ public class StudentTest {
   }
 
   @Test
-  public void registerModule() {
+  public void registerModuleTest() {
     // test 4
     Student student = new Student();
-
-    student.setId(1);
-    student.setFirstName("alice");
-    student.setLastName("brandy");
-    student.setUsername("BossBrandy");
-    student.setEmail("alicebrandy@gmail.com");
 
     Module module = new Module();
     module.setCode("CS2800");
@@ -100,6 +94,35 @@ public class StudentTest {
     assertEquals("CS2800", testcode);
     assertEquals("Software Enginnering", testname);
     assertEquals(true, testmnc);
+  }
+
+  @Test
+  public void addGradeTest() {
+    // test 5
+    Student student = new Student();
+
+    Module module = new Module();
+    module.setCode("CS2800");
+    module.setName("Software Enginnering");
+    module.setMnc(true);
+
+    student.registerModule(module);
+
+    // grade has a reference to the code of the module that it is registered for
+    Grade grade = new Grade();
+
+    grade.setScore(90);
+    grade.setModuleReference("CS2800");
+
+    // adds the grade
+    student.addGrade(grade);
+
+    // gets the newly added grade
+    Grade testgrade = student.getGrade("CS2800");
+
+    assertEquals(grade, testgrade);
+    assertEquals(grade.getScore(), testgrade.getScore());
+
   }
 
 }
