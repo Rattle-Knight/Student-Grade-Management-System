@@ -2,6 +2,7 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 
@@ -115,7 +116,7 @@ public class Student {
    * @return returns the grade associated with the module
    */
 
-  public Grade getGrade(Module modulecheck) {
+  public Grade getGrade(Module modulecheck) throws NoGradeAvailableException {
     Grade returngrade = null;
     for (int count = 0; count < grades.size(); count++) {
       if (grades.get(count).getModuleReference().equals(modulecheck.getCode())) {
@@ -125,7 +126,12 @@ public class Student {
         returngrade = null;
       }
     }
-    return returngrade;
+    if (returngrade != null) {
+      return returngrade;
+    } else {
+      throw new NoGradeAvailableException(
+          "No Grade Available with associated Module " + modulecheck.getCode());
+    }
   }
 
 
