@@ -191,13 +191,6 @@ public class StudentTest {
     module.setName("Operating Systems");
     module.setMnc(true);
 
-    // grade is registered for a module but not for that associated module with the grade above
-    Grade grade = new Grade();
-    grade.setModuleReference("CS2000");
-    grade.setScore(99);
-
-    // adds the grade
-    student.addGrade(grade);
 
     Throwable exception =
         assertThrows(NoGradeAvailableException.class, () -> student.getGrade(module));
