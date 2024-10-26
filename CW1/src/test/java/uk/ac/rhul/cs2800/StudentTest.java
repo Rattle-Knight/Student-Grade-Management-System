@@ -87,8 +87,8 @@ public class StudentTest {
 
     student.registerModule(module);
 
-    final List<Module> modules = student.getModules();
-    assertEquals(module, modules.get(0));
+    final List<Registration> registrations = student.getRegistrations();
+    assertEquals(module, registrations.get(0));
   }
 
 }
