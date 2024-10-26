@@ -1,6 +1,7 @@
 package uk.ac.rhul.cs2800;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import uk.ac.rhul.cs2800.model.Grade;
 import uk.ac.rhul.cs2800.model.Module;
@@ -66,6 +67,28 @@ public class StudentTest {
     final Integer score = grade.getScore();
 
     assertEquals(90, score);
+  }
+
+  @Test
+  public void registerModule() {
+    // test 4
+    Student student = new Student();
+
+    student.setId(1);
+    student.setFirstName("alice");
+    student.setLastName("brandy");
+    student.setUsername("BossBrandy");
+    student.setEmail("alicebrandy@gmail.com");
+
+    Module module = new Module();
+    module.setCode("CS2800");
+    module.setName("Software Enginnering");
+    module.setMnc(true);
+
+    student.registerModule(module);
+
+    final List<Module> modules = student.getModules();
+    assertEquals(module, modules.get(0));
   }
 
 }
