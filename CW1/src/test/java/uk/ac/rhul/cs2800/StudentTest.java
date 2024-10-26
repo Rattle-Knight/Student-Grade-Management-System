@@ -1,12 +1,15 @@
 package uk.ac.rhul.cs2800;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 import uk.ac.rhul.cs2800.model.Grade;
 import uk.ac.rhul.cs2800.model.Module;
 import uk.ac.rhul.cs2800.model.Registration;
 import uk.ac.rhul.cs2800.model.Student;
+
 
 /**
  * Unit test for Student Class.
@@ -124,5 +127,21 @@ public class StudentTest {
     assertEquals(grade.getScore(), testgrade.getScore());
 
   }
+
+  @Test
+  public void noModuleRegisteredTest() {
+    // test 6
+    final Student student = new Student();
+
+    Grade grade = new Grade();
+    grade.setScore(90);
+    grade.setModuleReference("CS999999");
+
+    Throwable exception =
+        assertThrows(NoRegistrationException.class, () -> student.addGrade(grade));
+    assertEquals("expected messages", exception.getMessage());
+
+  }
+
 
 }
