@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import uk.ac.rhul.cs2800.model.Grade;
 import uk.ac.rhul.cs2800.model.Module;
+import uk.ac.rhul.cs2800.model.Registration;
 import uk.ac.rhul.cs2800.model.Student;
 
 /**
