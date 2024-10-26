@@ -118,7 +118,7 @@ public class StudentTest {
     student.addGrade(grade);
 
     // gets the newly added grade
-    Grade testgrade = student.getGrade("CS2800");
+    Grade testgrade = student.getGrade(module);
 
     assertEquals(grade, testgrade);
     assertEquals(grade.getScore(), testgrade.getScore());
