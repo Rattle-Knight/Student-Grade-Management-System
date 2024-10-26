@@ -139,7 +139,7 @@ public class StudentTest {
 
     Throwable exception =
         assertThrows(NoRegistrationException.class, () -> student.addGrade(grade));
-    assertEquals("expected messages", exception.getMessage());
+    assertEquals("No Registered Module with Code CS999999", exception.getMessage());
 
   }
 
