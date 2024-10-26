@@ -13,6 +13,8 @@ public class Student {
   private String username;
   private String email;
 
+  private List<Grade> grades = new ArrayList<>();
+
   private List<Registration> registrations = new ArrayList<>();
 
   public long getId() {
@@ -73,6 +75,32 @@ public class Student {
     registration.setModule(moduleToRegister);
 
     this.registrations.add(registration);
+  }
+
+  /**
+   * this method adds the grade to the students grades array, if there is a registered module
+   * referenced to that grade.
+   *
+   * @param gradeToAdd the grade to be added to the students grades array.
+   */
+  public void addGrade(Grade gradeToAdd) {
+    grades.add(gradeToAdd);
+  }
+
+  /**
+   * 
+   * @param modulecheck
+   * @return
+   */
+
+  public Grade getGrade(Module modulecheck) {
+    Grade returngrade = null;
+    for (int count = 0; count < grades.size(); count++) {
+      if (grades.get(count).getModuleReference().equals(modulecheck.getCode())) {
+        returngrade = grades.get(count);
+      }
+    }
+    return returngrade;
   }
 
 
