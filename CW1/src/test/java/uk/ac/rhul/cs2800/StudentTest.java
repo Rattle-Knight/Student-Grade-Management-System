@@ -100,7 +100,7 @@ public class StudentTest {
   }
 
   @Test
-  public void addGradeTest() {
+  public void addGradeTest() throws NoRegistrationException {
     // test 5
     final Student student = new Student();
 
@@ -129,7 +129,7 @@ public class StudentTest {
   }
 
   @Test
-  public void noModuleRegisteredTest() {
+  public void noModuleRegisteredTest() throws NoRegistrationException {
     // test 6
     final Student student = new Student();
 
@@ -143,5 +143,41 @@ public class StudentTest {
 
   }
 
+  @Test
+  public void addMultipleModulesTest() throws NoRegistrationException {
+    // test 7
+    final Student student = new Student();
+
+    Module module = new Module();
+    module.setCode("CS2800");
+    module.setName("Software Enginnering");
+    module.setMnc(true);
+
+    student.registerModule(module);
+
+    Module module2 = new Module();
+    module2.setCode("CS2850");
+    module2.setName("Operating Systems");
+    module2.setMnc(true);
+
+    student.registerModule(module2);
+
+    // grade is registered for 2nd module
+    Grade grade = new Grade();
+
+    grade.setScore(10);
+    grade.setModuleReference("CS2850");
+
+
+    // adds the grade
+    student.addGrade(grade);
+
+    // gets the newly added grade
+    Grade testgrade = student.getGrade(module2);
+
+    assertEquals(grade, testgrade);
+    assertEquals(grade.getScore(), testgrade.getScore());
+
+  }
 
 }
