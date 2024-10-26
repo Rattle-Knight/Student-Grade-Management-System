@@ -99,7 +99,11 @@ public class Student {
     }
 
     if (validModuleGrade) {
-      grades.add(gradeToAdd);
+      Grade grade = new Grade();
+      grade.setScore(gradeToAdd.getScore());
+      grade.setModuleReference(gradeToAdd.getModuleReference());
+
+      grades.add(grade);
     } else {
       throw new NoRegistrationException(
           "No Registered Module with Code " + gradeToAdd.getModuleReference());

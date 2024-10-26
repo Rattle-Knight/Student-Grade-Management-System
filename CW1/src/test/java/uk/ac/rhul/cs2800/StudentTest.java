@@ -124,7 +124,7 @@ public class StudentTest {
     //gets the newly added grade
     Grade testgrade = student.getGrade(module);
     
-    assertEquals(grade, testgrade);
+    assertEquals(grade.getModuleReference(), testgrade.getModuleReference());
     assertEquals(grade.getScore(), testgrade.getScore());
 
   }
@@ -176,7 +176,7 @@ public class StudentTest {
     // gets the newly added grade
     Grade testgrade = student.getGrade(module2);
 
-    assertEquals(grade, testgrade);
+    assertEquals(grade.getModuleReference(), testgrade.getModuleReference());
     assertEquals(grade.getScore(), testgrade.getScore());
 
   }
@@ -236,7 +236,7 @@ public class StudentTest {
     // gets the newly added grade
     Grade testgrade = student.getGrade(module2);
 
-    assertEquals(grade2, testgrade);
+    assertEquals(grade2.getModuleReference(), testgrade.getModuleReference());
     assertEquals(grade2.getScore(), testgrade.getScore());
 
   }
