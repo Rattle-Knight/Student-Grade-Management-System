@@ -88,9 +88,11 @@ public class Student {
   }
 
   /**
-   * 
-   * @param modulecheck
-   * @return
+   * this method gets the grade from its associated module, this module is given in the parameters
+   * of the function.
+   *
+   * @param modulecheck the module that the grade is associated with
+   * @return returns the grade associated with the module
    */
 
   public Grade getGrade(Module modulecheck) {
