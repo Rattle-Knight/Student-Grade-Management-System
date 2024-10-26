@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 import uk.ac.rhul.cs2800.model.Grade;
 import uk.ac.rhul.cs2800.model.Module;
@@ -100,7 +101,7 @@ public class StudentTest {
   }
 
   @Test
-  public void addGradeTest() throws NoRegistrationException {
+  public void addGradeTest() throws NoRegistrationException, NoGradeAvailableException {
     // test 5
     final Student student = new Student();
 
@@ -144,7 +145,7 @@ public class StudentTest {
   }
 
   @Test
-  public void addMultipleModulesTest() throws NoRegistrationException {
+  public void addMultipleModulesTest() throws NoRegistrationException, NoGradeAvailableException {
     // test 7
     final Student student = new Student();
 
@@ -177,6 +178,30 @@ public class StudentTest {
 
     assertEquals(grade, testgrade);
     assertEquals(grade.getScore(), testgrade.getScore());
+
+  }
+
+  @Test
+  public void noGradeAvailableTest() throws NoRegistrationException, NoGradeAvailableException {
+    // test 8
+    final Student student = new Student();
+
+    Module module = new Module();
+    module.setCode("CS2850");
+    module.setName("Operating Systems");
+    module.setMnc(true);
+
+    // grade is registered for module but no Score
+    Grade grade = new Grade();
+    grade.setModuleReference("CS2850");
+
+
+    // adds the grade
+    student.addGrade(grade);
+
+    Throwable exception =
+        assertThrows(NoGradeAvailableException.class, () -> student.getGrade(module));
+    assertEquals("No Grade Available with associated Module CS2850", exception.getMessage());
 
   }
 
