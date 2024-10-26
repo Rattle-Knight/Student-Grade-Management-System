@@ -1,5 +1,8 @@
 package uk.ac.rhul.cs2800.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * this is a class for representing a Student in the grade management program.
  */
@@ -9,6 +12,8 @@ public class Student {
   private String lastName;
   private String username;
   private String email;
+
+  private List<Registration> registrations = new ArrayList<>();
 
   public long getId() {
     return id;
@@ -49,6 +54,27 @@ public class Student {
   public void setEmail(String email) {
     this.email = email;
   }
+
+  public List<Registration> getRegistrations() {
+    return registrations;
+  }
+
+  /**
+   * this method registers a module into a registration object it then adds that object to this
+   * students, registrations.
+   *
+   * @param moduleToRegister the module that is to be registered.
+   * 
+   */
+
+  public void registerModule(Module moduleToRegister) {
+    Registration registration = new Registration();
+
+    registration.setModule(moduleToRegister);
+
+    this.registrations.add(registration);
+  }
+
 
 
 }
