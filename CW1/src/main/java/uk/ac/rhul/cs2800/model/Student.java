@@ -138,6 +138,23 @@ public class Student {
     }
   }
 
+  public float computeAverage() {
+    float average = 0;
+    float averagecount = 0;
+
+    for (int count = 0; count < grades.size(); count++) {
+      averagecount += grades.get(count).getScore();
+    }
+    if (grades.size() != 0) {
+      average = averagecount / grades.size();
+    } else {
+      average = 0;
+    }
+
+    return average;
+
+  }
+
 
 
 }
