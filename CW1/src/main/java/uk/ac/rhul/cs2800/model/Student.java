@@ -138,6 +138,12 @@ public class Student {
     }
   }
 
+  /**
+   * this method computes the average grade out of all the grades for this student.
+   *
+   * @return this returns the average grade.
+   */
+
   public float computeAverage() {
     float average = 0;
     float averagecount = 0;
