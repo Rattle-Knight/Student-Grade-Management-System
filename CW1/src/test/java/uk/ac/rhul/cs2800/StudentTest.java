@@ -260,10 +260,17 @@ public class StudentTest {
 
     student.registerModule(module2);
 
-    // grade is registered for 2nd module
+    Module module3 = new Module();
+    module3.setCode("CS2855");
+    module3.setName("Databases");
+    module3.setMnc(true);
+
+    student.registerModule(module3);
+
+    // grades added for all modules
     Grade grade = new Grade();
 
-    grade.setScore(10);
+    grade.setScore(95);
     grade.setModuleReference("CS2800");
 
     Grade grade2 = new Grade();
@@ -271,16 +278,20 @@ public class StudentTest {
     grade2.setScore(100);
     grade2.setModuleReference("CS2850");
 
+    Grade grade3 = new Grade();
+
+    grade2.setScore(75);
+    grade2.setModuleReference("CS2855");
+
 
     // adds the grades
     student.addGrade(grade);
     student.addGrade(grade2);
+    student.addGrade(grade3);
 
-    // gets the newly added grade
-    Grade testgrade = student.getGrade(module2);
+    float average = student.computeAverage();
 
-    assertEquals(grade2.getModuleReference(), testgrade.getModuleReference());
-    assertEquals(grade2.getScore(), testgrade.getScore());
+    assertEquals(90, average);
 
   }
 }
