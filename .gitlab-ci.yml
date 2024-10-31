@@ -1,0 +1,37 @@
+stages:
+  - build
+  - test
+  - jacoco
+  - checkstyle
+  - spotbugs
+
+build:
+  stage: build
+  script:
+    - cd CW1
+    - mvn compile
+
+test:
+  stage: test
+  script:
+    - cd CW1
+    - mvn test
+
+jacoco:
+  stage: jacoco
+  script:
+    - cd CW1
+    - mvn verify
+
+checkstyle:
+  stage: checkstyle
+  script:
+    - cd CW1
+    - mvn checkstyle:check
+
+spotbugs:
+  stage: spotbugs
+  script:
+    - cd CW1
+    - mvn spotbugs:check
+
