@@ -294,4 +294,16 @@ public class StudentTest {
     assertEquals(90, average);
 
   }
+
+  @Test
+  public void computeAverageGradeWithNoGradesTest()
+      throws NoRegistrationException, NoGradeAvailableException {
+    // test 10
+    final Student student = new Student();
+
+    float average = student.computeAverage();
+
+    assertEquals(0, average);
+
+  }
 }
