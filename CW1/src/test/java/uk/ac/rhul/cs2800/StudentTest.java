@@ -298,7 +298,7 @@ public class StudentTest {
   @Test
   public void computeAverageGradeWithNoGradesTest()
       throws NoRegistrationException, NoGradeAvailableException {
-    // test 10
+    // test 11
     final Student student = new Student();
 
     float average = student.computeAverage();
