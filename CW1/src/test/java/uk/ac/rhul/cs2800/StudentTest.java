@@ -280,8 +280,8 @@ public class StudentTest {
 
     Grade grade3 = new Grade();
 
-    grade2.setScore(75);
-    grade2.setModuleReference("CS2855");
+    grade3.setScore(75);
+    grade3.setModuleReference("CS2855");
 
 
     // adds the grades
