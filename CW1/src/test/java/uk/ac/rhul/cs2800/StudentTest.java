@@ -240,4 +240,47 @@ public class StudentTest {
     assertEquals(grade2.getScore(), testgrade.getScore());
 
   }
+
+  @Test
+  public void computeAverageGradeTest() throws NoRegistrationException, NoGradeAvailableException {
+    // test 10
+    final Student student = new Student();
+
+    Module module = new Module();
+    module.setCode("CS2800");
+    module.setName("Software Enginnering");
+    module.setMnc(true);
+
+    student.registerModule(module);
+
+    Module module2 = new Module();
+    module2.setCode("CS2850");
+    module2.setName("Operating Systems");
+    module2.setMnc(true);
+
+    student.registerModule(module2);
+
+    // grade is registered for 2nd module
+    Grade grade = new Grade();
+
+    grade.setScore(10);
+    grade.setModuleReference("CS2800");
+
+    Grade grade2 = new Grade();
+
+    grade2.setScore(100);
+    grade2.setModuleReference("CS2850");
+
+
+    // adds the grades
+    student.addGrade(grade);
+    student.addGrade(grade2);
+
+    // gets the newly added grade
+    Grade testgrade = student.getGrade(module2);
+
+    assertEquals(grade2.getModuleReference(), testgrade.getModuleReference());
+    assertEquals(grade2.getScore(), testgrade.getScore());
+
+  }
 }
