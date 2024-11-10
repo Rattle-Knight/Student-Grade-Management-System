@@ -3,6 +3,7 @@ package uk.ac.rhul.cs2800;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
@@ -13,28 +14,28 @@ import uk.ac.rhul.cs2800.model.Student;
 
 
 /**
- * Unit test for Student Class.
  */
 public class StudentTest {
+
+  Student student;
+
+  @BeforeEach
+  public void beforeEach() {
+    this.student = new Student();
+    student.setId(1);
+    student.setFirstName("alice");
+    student.setLastName("brandy");
+    student.setUsername("BossBrandy");
+    student.setEmail("alicebrandy@gmail.com");
+  }
 
   @Test
   public void getandsetStudentFields() {
     // test 1
-    Student student = new Student();
-
-    student.setId(1);
     final long id = student.getId();
-
-    student.setFirstName("alice");
     final String name = student.getFirstName();
-
-    student.setLastName("brandy");
-    final String lastname = student.getLastName();
-
-    student.setUsername("BossBrandy");
+    final String lastname = student.getLastName();;
     final String username = student.getUsername();
-
-    student.setEmail("alicebrandy@gmail.com");
     final String email = student.getEmail();
 
     assertEquals(1, id);
@@ -77,7 +78,6 @@ public class StudentTest {
   @Test
   public void registerModuleTest() {
     // test 4
-    final Student student = new Student();
 
     Module module = new Module();
     module.setCode("CS2800");
@@ -88,22 +88,17 @@ public class StudentTest {
 
     final List<Registration> registrations = student.getRegistrations();
     
-    final Module moduletest = registrations.get(0).getModule();
-    final String testcode = moduletest.getCode();
-    final String testname = moduletest.getName();
-    final boolean testmnc = moduletest.getMnc();
+    final String moduleReferencetest = registrations.get(0).getModuleReference();
+
     
 
     // tests modules attributes against module attributes in the registration
-    assertEquals("CS2800", testcode);
-    assertEquals("Software Enginnering", testname);
-    assertEquals(true, testmnc);
+    assertEquals("CS2800", moduleReferencetest);
   }
 
   @Test
   public void addGradeTest() throws NoRegistrationException, NoGradeAvailableException {
     // test 5
-    final Student student = new Student();
 
     Module module = new Module();
     module.setCode("CS2800");
@@ -132,7 +127,6 @@ public class StudentTest {
   @Test
   public void noModuleRegisteredTest() throws NoRegistrationException {
     // test 6
-    final Student student = new Student();
 
     Grade grade = new Grade();
     grade.setScore(90);
@@ -147,7 +141,6 @@ public class StudentTest {
   @Test
   public void addMultipleModulesTest() throws NoRegistrationException, NoGradeAvailableException {
     // test 7
-    final Student student = new Student();
 
     Module module = new Module();
     module.setCode("CS2800");
@@ -184,7 +177,6 @@ public class StudentTest {
   @Test
   public void noGradeAvailableTest() throws NoRegistrationException, NoGradeAvailableException {
     // test 8
-    final Student student = new Student();
 
     Module module = new Module();
     module.setCode("CS2850");
@@ -201,7 +193,6 @@ public class StudentTest {
   @Test
   public void addMultipleGradesTest() throws NoRegistrationException, NoGradeAvailableException {
     // test 9
-    final Student student = new Student();
 
     Module module = new Module();
     module.setCode("CS2800");
@@ -244,7 +235,6 @@ public class StudentTest {
   @Test
   public void computeAverageGradeTest() throws NoRegistrationException, NoGradeAvailableException {
     // test 10
-    final Student student = new Student();
 
     Module module = new Module();
     module.setCode("CS2800");
@@ -299,7 +289,6 @@ public class StudentTest {
   public void computeAverageGradeWithNoGradesTest()
       throws NoRegistrationException, NoGradeAvailableException {
     // test 11
-    final Student student = new Student();
 
     float average = student.computeAverage();
 
