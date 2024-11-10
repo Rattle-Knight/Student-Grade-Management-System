@@ -10,7 +10,7 @@ public class Registration {
     return moduleReference;
   }
 
-  public void setModule(String module) {
+  public void setModuleReference(String module) {
     this.moduleReference = module;
   }
 
