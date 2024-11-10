@@ -74,8 +74,8 @@ public class Student {
 
   public void registerModule(Module moduleToRegister) {
     Registration registration = new Registration();
-
-    registration.setModule(moduleToRegister);
+    String code = moduleToRegister.getCode();
+    registration.setModuleReference(code);
 
     this.registrations.add(registration);
   }
@@ -90,7 +90,7 @@ public class Student {
 
     boolean validModuleGrade = false;
     for (int count = 0; count < registrations.size(); count++) {
-      if (registrations.get(count).getModule().getCode().equals(gradeToAdd.getModuleReference())) {
+      if (registrations.get(count).getModuleReference().equals(gradeToAdd.getModuleReference())) {
         validModuleGrade = true;
         break;
       } else {

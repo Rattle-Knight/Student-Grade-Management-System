@@ -88,16 +88,12 @@ public class StudentTest {
 
     final List<Registration> registrations = student.getRegistrations();
     
-    final Module moduletest = registrations.get(0).getModule();
-    final String testcode = moduletest.getCode();
-    final String testname = moduletest.getName();
-    final boolean testmnc = moduletest.getMnc();
+    final String moduleReferencetest = registrations.get(0).getModuleReference();
+
     
 
     // tests modules attributes against module attributes in the registration
-    assertEquals("CS2800", testcode);
-    assertEquals("Software Enginnering", testname);
-    assertEquals(true, testmnc);
+    assertEquals("CS2800", moduleReferencetest);
   }
 
   @Test
