@@ -93,7 +93,7 @@
         <version>0.8.12</version>
         <configuration>
           <excludes>
-            <exclude>**/Cw2Application*</exclude>
+            <exclude>**/Application*</exclude>
           </excludes>
         </configuration>
         <executions>
@@ -174,7 +174,7 @@
         <version>0.8.12</version>
         <configuration>
           <excludes>
-            <exclude>**/Cw2Application*</exclude>
+            <exclude>**/Application*</exclude>
           </excludes>
         </configuration>
         <reportSets>
