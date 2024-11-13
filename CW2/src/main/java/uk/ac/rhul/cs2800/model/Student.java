@@ -1,5 +1,10 @@
 package uk.ac.rhul.cs2800.model;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
@@ -9,15 +14,21 @@ import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 /**
  * this is a class for representing a Student in the grade management program.
  */
+@Entity
 public class Student {
+
+  @Id
+  @GeneratedValue
   private long id;
   private String firstName;
   private String lastName;
   private String username;
   private String email;
 
+  @OneToMany
   private List<Grade> grades = new ArrayList<>();
 
+  @OneToMany
   private List<Registration> registrations = new ArrayList<>();
 
   public long getId() {
