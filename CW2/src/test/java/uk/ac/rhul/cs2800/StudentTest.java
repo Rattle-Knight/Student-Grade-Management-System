@@ -14,11 +14,15 @@ import uk.ac.rhul.cs2800.model.Student;
 
 
 /**
+ * this is the main unit tester for all methods within the student class.
  */
 public class StudentTest {
 
   Student student;
 
+  /**
+   * this function instantiates a new student before every test.
+   */
   @BeforeEach
   public void beforeEach() {
     this.student = new Student();
