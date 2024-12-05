@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 
 /**
  * this is the class for representing Grades for Modules.
@@ -39,7 +38,7 @@ public class Grade {
 
   private Integer score;
 
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "module_code")
   Module module;
 
