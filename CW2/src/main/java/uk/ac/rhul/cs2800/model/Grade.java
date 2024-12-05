@@ -21,6 +21,8 @@ public class Grade {
   Student student;
 
   private Integer score;
+
+  @JoinColumn(name = "module_code")
   private String moduleReference;
 
   public Integer getScore() {

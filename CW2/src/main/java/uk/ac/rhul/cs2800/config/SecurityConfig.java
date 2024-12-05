@@ -1,6 +1,7 @@
 package uk.ac.rhul.cs2800.config;
 
 import static org.springframework.security.config.Customizer.withDefaults;
+
 import java.util.Arrays;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
