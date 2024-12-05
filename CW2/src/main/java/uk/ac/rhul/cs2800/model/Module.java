@@ -14,6 +14,8 @@ public class Module {
   @Id
   @GeneratedValue
   private String code;
+
+
   private String name;
   private boolean mnc;
 
