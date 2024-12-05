@@ -46,7 +46,7 @@ public class GradeController {
   @PostMapping(value = "/grades/addGrade")
   public ResponseEntity<Grade> addGrade(@RequestBody Map<String, String> params) {
 
-    long id = Long.valueOf(params.get("student_id"));
+    long id = Long.parseLong((params.get("student_id")));
     Student student = studentRepository.findById(id).orElseThrow();
 
     Module module =
