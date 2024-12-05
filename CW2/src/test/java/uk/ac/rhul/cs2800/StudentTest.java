@@ -93,12 +93,12 @@ public class StudentTest {
 
     final List<Registration> registrations = student.getRegistrations();
     
-    final String moduleReferencetest = registrations.get(0).getModuleReference();
+    final Module moduletest = registrations.get(0).getModule();
 
     
 
     // tests modules attributes against module attributes in the registration
-    assertEquals("CS2800", moduleReferencetest);
+    assertEquals(module, moduletest);
   }
 
   @Test
@@ -116,7 +116,7 @@ public class StudentTest {
     Grade grade = new Grade();
 
     grade.setScore(90);
-    grade.setModuleReference("CS2800");
+    grade.setModule(module);
     
     //adds the grade
     student.addGrade(grade);
@@ -124,7 +124,7 @@ public class StudentTest {
     //gets the newly added grade
     Grade testgrade = student.getGrade(module);
     
-    assertEquals(grade.getModuleReference(), testgrade.getModuleReference());
+    assertEquals(grade.getModule(), testgrade.getModule());
     assertEquals(grade.getScore(), testgrade.getScore());
 
   }
@@ -135,11 +135,11 @@ public class StudentTest {
 
     Grade grade = new Grade();
     grade.setScore(90);
-    grade.setModuleReference("CS999999");
+
 
     Throwable exception =
         assertThrows(NoRegistrationException.class, () -> student.addGrade(grade));
-    assertEquals("No Registered Module with Code CS999999", exception.getMessage());
+    assertEquals("No Registered Module with Code null", exception.getMessage());
 
   }
 
@@ -165,7 +165,7 @@ public class StudentTest {
     Grade grade = new Grade();
 
     grade.setScore(10);
-    grade.setModuleReference("CS2850");
+    grade.setModule(module2);
 
 
     // adds the grade
@@ -174,7 +174,7 @@ public class StudentTest {
     // gets the newly added grade
     Grade testgrade = student.getGrade(module2);
 
-    assertEquals(grade.getModuleReference(), testgrade.getModuleReference());
+    assertEquals(grade.getModule(), testgrade.getModule());
     assertEquals(grade.getScore(), testgrade.getScore());
 
   }
@@ -217,12 +217,12 @@ public class StudentTest {
     Grade grade = new Grade();
 
     grade.setScore(10);
-    grade.setModuleReference("CS2800");
+    grade.setModule(module);
 
     Grade grade2 = new Grade();
 
     grade2.setScore(100);
-    grade2.setModuleReference("CS2850");
+    grade2.setModule(module2);
 
 
     // adds the grades
@@ -232,7 +232,7 @@ public class StudentTest {
     // gets the newly added grade
     Grade testgrade = student.getGrade(module2);
 
-    assertEquals(grade2.getModuleReference(), testgrade.getModuleReference());
+    assertEquals(grade2.getModule(), testgrade.getModule());
     assertEquals(grade2.getScore(), testgrade.getScore());
 
   }
@@ -266,17 +266,17 @@ public class StudentTest {
     Grade grade = new Grade();
 
     grade.setScore(95);
-    grade.setModuleReference("CS2800");
+    grade.setModule(module);
 
     Grade grade2 = new Grade();
 
     grade2.setScore(100);
-    grade2.setModuleReference("CS2850");
+    grade2.setModule(module2);
 
     Grade grade3 = new Grade();
 
     grade3.setScore(75);
-    grade3.setModuleReference("CS2855");
+    grade3.setModule(module3);
 
 
     // adds the grades
