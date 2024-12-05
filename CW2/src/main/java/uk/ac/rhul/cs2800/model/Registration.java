@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 /**
  * this class models registration within students.
@@ -20,14 +21,16 @@ public class Registration {
   @JoinColumn(name = "student_id")
   Student student;
 
-  private String moduleReference;
+  @OneToOne
+  @JoinColumn(name = "module_code")
+  Module module;
 
-  public String getModuleReference() {
-    return moduleReference;
+  public Module getModule() {
+    return module;
   }
 
-  public void setModuleReference(String module) {
-    this.moduleReference = module;
+  public void setModule(Module module) {
+    this.module = module;
   }
 
 }
