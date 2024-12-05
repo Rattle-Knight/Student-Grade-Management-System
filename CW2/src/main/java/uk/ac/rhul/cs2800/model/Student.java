@@ -1,12 +1,11 @@
 package uk.ac.rhul.cs2800.model;
 
-
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
@@ -85,8 +84,7 @@ public class Student {
 
   public void registerModule(Module moduleToRegister) {
     Registration registration = new Registration();
-    String code = moduleToRegister.getCode();
-    registration.setModuleReference(code);
+    registration.setModule(moduleToRegister);
 
     this.registrations.add(registration);
   }
@@ -101,7 +99,7 @@ public class Student {
 
     boolean validModuleGrade = false;
     for (int count = 0; count < registrations.size(); count++) {
-      if (registrations.get(count).getModuleReference().equals(gradeToAdd.getModuleReference())) {
+      if (registrations.get(count).getModule().getCode().equals(gradeToAdd.getModule().getCode())) {
         validModuleGrade = true;
         break;
       } else {
@@ -112,12 +110,12 @@ public class Student {
     if (validModuleGrade) {
       Grade grade = new Grade();
       grade.setScore(gradeToAdd.getScore());
-      grade.setModuleReference(gradeToAdd.getModuleReference());
+      grade.setModule(gradeToAdd.getModule());
 
       grades.add(grade);
     } else {
       throw new NoRegistrationException(
-          "No Registered Module with Code " + gradeToAdd.getModuleReference());
+          "No Registered Module with Code " + gradeToAdd.getModule());
     }
 
 
@@ -134,7 +132,7 @@ public class Student {
   public Grade getGrade(Module modulecheck) throws NoGradeAvailableException {
     Grade returngrade = null;
     for (int count = 0; count < grades.size(); count++) {
-      if (grades.get(count).getModuleReference().equals(modulecheck.getCode())) {
+      if (grades.get(count).getModule().getCode().equals(modulecheck.getCode())) {
         returngrade = grades.get(count);
         break;
       } else {
