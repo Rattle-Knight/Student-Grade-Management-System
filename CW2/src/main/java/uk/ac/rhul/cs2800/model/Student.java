@@ -1,7 +1,6 @@
 package uk.ac.rhul.cs2800.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
@@ -17,17 +16,16 @@ import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 public class Student {
 
   @Id
-  @GeneratedValue
   private long id;
   private String firstName;
   private String lastName;
   private String username;
   private String email;
 
-  @OneToMany
+  @OneToMany(mappedBy = "student")
   private List<Grade> grades = new ArrayList<>();
 
-  @OneToMany
+  @OneToMany(mappedBy = "student")
   private List<Registration> registrations = new ArrayList<>();
 
   public long getId() {
@@ -70,7 +68,12 @@ public class Student {
     this.email = email;
   }
 
-  public List<Registration> getRegistrations() {
+  /**
+   * lists current registrations.
+   *
+   * @return returns a list of registrations.
+   */
+  public List<Registration> listRegistrations() {
     return registrations;
   }
 

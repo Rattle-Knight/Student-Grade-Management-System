@@ -74,10 +74,14 @@ public class StudentTest {
     // test 3
     Grade grade = new Grade();
 
+    grade.setId(0);
     grade.setScore(90);
+    grade.setStudent(student);
     final Integer score = grade.getScore();
 
     assertEquals(90, score);
+    assertEquals(student, grade.getStudent());
+    assertEquals(0, grade.getId());
   }
 
   @Test
@@ -91,7 +95,7 @@ public class StudentTest {
 
     student.registerModule(module);
 
-    final List<Registration> registrations = student.getRegistrations();
+    final List<Registration> registrations = student.listRegistrations();
     
     final Module moduletest = registrations.get(0).getModule();
 
