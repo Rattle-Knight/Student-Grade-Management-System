@@ -21,6 +21,22 @@ public class Grade {
   @JoinColumn(name = "student_id")
   Student student;
 
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public Student getStudent() {
+    return student;
+  }
+
+  public void setStudent(Student student) {
+    this.student = student;
+  }
+
   private Integer score;
 
   @OneToOne
