@@ -22,9 +22,9 @@ System Refactor: Reworked system architecture to correct aggregation issues betw
 CI/CD Configuration: Fixed build configurations to align with updated project requirements.
 
 ## Retrospective
-Successes: Improved understanding of Spring Boot, Maven, GitLab, and software engineering concepts.
-Challenges: Faced and overcame significant refactoring and setup hurdles.
-Future Development: Plans include adding authentication, login features, and extending registration capabilities.
+- Successes: Improved understanding of Spring Boot, Maven, GitLab, and software engineering concepts.
+- Challenges: Faced and overcame significant refactoring and setup hurdles.
+- Future Development: Plans include adding authentication, login features, and extending registration capabilities.
 
 ## Conclusion
 This project has been a valuable learning experience in building, deploying, and maintaining a full-stack application. It provided insights into real-world software engineering practices and reinforced key technical skills.
